@@ -93,6 +93,8 @@ st.markdown("""
 # =========================================================
 
 # Usuários cadastrados
+
+# Usuários cadastrados
 USUARIOS_CADASTRO = {
     # Admin
     "ismael": {"nivel": "admin", "nome_completo": "Ismael", "area": "admin", "senha": "ismael@741"},
@@ -107,6 +109,7 @@ USUARIOS_CADASTRO = {
     
     # Acesso especial
     "claytiane": {"nivel": "socios", "nome_completo": "Claytiane", "area": "financeiro", "senha": "claytiane#579"},
+    "renata": {"nivel": "admfin", "nome_completo": "Renata", "area": "Administrativo Financeiro", "senha": "renata@123"},
     
     # Líderes
     "victor": {"nivel": "lideres", "nome_completo": "Victor", "area": "administrativo", "senha": "victor$681"},
@@ -143,6 +146,8 @@ def get_paginas_por_usuario(nivel, area):
         return TODAS_PAGINAS
     elif nivel == "socios":
         return [p for p in TODAS_PAGINAS if p["id"] != "configuracoes"]
+    elif nivel == "admfin":
+        return [p for p in TODAS_PAGINAS if p["id"] not in ["configuracoes", "rh", "marketing", "comercial"]]
     elif nivel == "lideres":
         paginas_permitidas = [{"id": "painel", "nome": "Painel Geral", "href": "/", "icon": "house-door"}]
         
