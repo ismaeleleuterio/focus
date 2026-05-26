@@ -1167,7 +1167,7 @@ def main():
     
     # Sidebar com menu
     with st.sidebar:
-        st.image("assets/FocusLogo.png")
+        st.image("FocusLogo.png")
         st.markdown("---")
         
         paginas = get_paginas_por_usuario(st.session_state.nivel, st.session_state.area)
