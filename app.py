@@ -100,7 +100,7 @@ USUARIOS_CADASTRO = {
     "ismael": {"nivel": "admin", "nome_completo": "Ismael", "area": "admin", "senha": "ismael@741"},
     
     # Sócias
-    "katia": {"nivel": "socios", "nome_completo": "Katia", "area": "socios", "senha": "katia#852"},
+    "katia": {"nivel": "socios1", "nome_completo": "Katia", "area": "socios", "senha": "katia#852"},
     "cleia": {"nivel": "socios", "nome_completo": "Cleia", "area": "socios", "senha": "cleia$963"},
     "ianca": {"nivel": "socios", "nome_completo": "Ianca", "area": "socios", "senha": "ianca%159"},
     "maysa": {"nivel": "socios", "nome_completo": "Maysa", "area": "socios", "senha": "maysa&357"},
@@ -144,10 +144,12 @@ def get_paginas_por_usuario(nivel, area):
     """Retorna as páginas que o usuário pode acessar"""
     if nivel == "admin":
         return TODAS_PAGINAS
-    elif nivel == "socios":
+    elif nivel == "socios1":
         return [p for p in TODAS_PAGINAS if p["id"] != "configuracoes"]
     elif nivel == "admfin":
         return [p for p in TODAS_PAGINAS if p["id"] not in ["configuracoes", "rh", "marketing", "comercial"]]
+    elif nivel == "socios":
+        return [p for p in TODAS_PAGINAS if p["id"] not in ["configuracoes", "financeiro"]]
     elif nivel == "lideres":
         paginas_permitidas = [{"id": "painel", "nome": "Painel Geral", "href": "/", "icon": "house-door"}]
         
