@@ -149,7 +149,7 @@ def get_paginas_por_usuario(nivel, area):
     elif nivel == "admfin":
         return [p for p in TODAS_PAGINAS if p["id"] not in ["configuracoes", "rh", "marketing", "comercial"]]
     elif nivel == "socios":
-        return [p for p in TODAS_PAGINAS if p["id"] not in ["configuracoes", "financeiro"]]
+        return [p for p in TODAS_PAGINAS if p["id"] not in ["configuracoes", "financeiro", "consultoria"]]
     elif nivel == "lideres":
         paginas_permitidas = [{"id": "painel", "nome": "Painel Geral", "href": "/", "icon": "house-door"}]
         
